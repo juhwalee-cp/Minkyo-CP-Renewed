@@ -36,6 +36,11 @@ body {
 
 ::selection { background: var(--gold); color: var(--navy-950); }
 
+p {
+  font-size: 1.3125rem; /* 21px */
+  font-weight: 500;
+}
+
 img, svg { display: block; max-width: 100%; }
 
 /* ---------- layout helpers ---------- */
@@ -61,6 +66,9 @@ img, svg { display: block; max-width: 100%; }
 
 .section-text {
   max-width: 58ch;
+  width: 556px;
+  height: 89px;
+  font-size: 22px;
   color: var(--ivory-dim);
   margin-bottom: 1rem;
 }
@@ -127,36 +135,19 @@ img, svg { display: block; max-width: 100%; }
 
 .hero-portrait { justify-self: center; text-align: center; }
 
-.portrait-ring {
+.portrait-frame {
   padding: 10px;
-  border-radius: 50%;
   border: 1px solid var(--hairline);
+  border-radius: 4px;
 }
 
 .portrait {
-  width: clamp(170px, 24vw, 270px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background:
-    radial-gradient(circle at 32% 28%, var(--navy-600), var(--navy-800) 70%);
+  width: clamp(220px, 30vw, 360px);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 2px;
   border: 1px solid rgba(201, 162, 39, 0.45);
-  overflow: hidden;
-}
-
-.monogram {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 7vw, 5rem);
-  color: var(--gold-soft);
-  letter-spacing: 0.05em;
-}
-
-.portrait-caption {
-  margin-top: 0.9rem;
-  font-style: italic;
-  font-size: 0.9rem;
-  color: var(--ivory-dim);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
 }
 
 .scroll-cue {
@@ -183,12 +174,36 @@ img, svg { display: block; max-width: 100%; }
    About
    ========================================================================== */
 
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.about-video {
+  justify-self: end;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+}
+
+.about-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .about-body { max-width: 64ch; }
 
 .about-body .lead {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(1.3rem, 3vw, 1.7rem);
-  font-style: italic;
+  font-style: normal;
   color: var(--gold-soft);
   margin-bottom: 1.2rem;
 }
@@ -264,7 +279,7 @@ img, svg { display: block; max-width: 100%; }
   margin-top: 3rem;
   overflow: hidden;
   position: relative;
-  padding: 0.5rem 0 1rem;
+  padding: 1.25rem 0 1rem; /* headroom so hover-zoomed images don't clip */
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
           mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
@@ -281,6 +296,24 @@ img, svg { display: block; max-width: 100%; }
   padding-right: clamp(1rem, 3vw, 2.2rem);
 }
 
+/* hover zoom on belt images */
+.belt .img-card { position: relative; }
+
+.belt .img-card img {
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  will-change: transform;
+}
+
+.belt .img-card:hover {
+  z-index: 2; /* enlarged image overlaps neighbouring cards */
+}
+
+.belt .img-card:hover img {
+  transform: scale(1.08);
+  border-color: var(--gold);
+  box-shadow: 0 26px 56px rgba(0, 0, 0, 0.55);
+}
+
 /* ==========================================================================
    Photojournalism — 3D ring
    ========================================================================== */
@@ -289,7 +322,7 @@ img, svg { display: block; max-width: 100%; }
 
 .ring-stage {
   margin-top: 2.5rem;
-  height: clamp(340px, 52vw, 480px);
+  height: clamp(390px, 60vw, 552px);
   perspective: 1600px;
   display: grid;
   place-items: center;
@@ -303,8 +336,8 @@ img, svg { display: block; max-width: 100%; }
 
 .ring {
   position: relative;
-  width: clamp(190px, 24vw, 260px);
-  height: clamp(250px, 32vw, 340px);
+  width: clamp(219px, 28vw, 299px);
+  height: clamp(288px, 37vw, 391px);
   transform-style: preserve-3d;
 }
 
@@ -331,39 +364,6 @@ img, svg { display: block; max-width: 100%; }
 }
 
 .ring-card figcaption { pointer-events: none; }
-
-.ring-slider-wrap { margin-top: 1.5rem; text-align: center; }
-
-.ring-slider {
-  -webkit-appearance: none;
-  appearance: none;
-  width: min(420px, 80%);
-  height: 2px;
-  background: linear-gradient(90deg, var(--gold), var(--navy-400));
-  border-radius: 2px;
-  outline-offset: 6px;
-  cursor: pointer;
-}
-
-.ring-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--ivory);
-  border: 2px solid var(--gold);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.ring-slider::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: var(--ivory);
-  border: 2px solid var(--gold);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
 
 /* ==========================================================================
    Rowing — draggable boat on a waterway
@@ -570,7 +570,9 @@ img, svg { display: block; max-width: 100%; }
   .hero-text { order: 1; }
   .hero-portrait { order: 0; }
 
-  .ring-stage { height: clamp(300px, 90vw, 380px); perspective: 1100px; }
+  .about-grid { grid-template-columns: 1fr; }
+
+  .ring-stage { height: clamp(345px, 100vw, 437px); perspective: 1100px; }
 
   .river-stage { height: 380px; }
 

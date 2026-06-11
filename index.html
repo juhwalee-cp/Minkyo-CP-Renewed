@@ -32,13 +32,9 @@
           </div>
 
           <div class="hero-portrait" data-speed="0.9">
-            <div class="portrait-ring">
-              <div class="portrait" aria-label="Profile image of Minkyo Kim">
-                <!-- Replace with <img src="assets/profile.jpg" alt="Minkyo Kim"> -->
-                <span class="monogram">MK</span>
-              </div>
+            <div class="portrait-frame">
+              <img class="portrait" src="assets/photos/minkyo-portrait.png" alt="Portrait of Minkyo Kim" />
             </div>
-            <p class="portrait-caption">profile image</p>
           </div>
         </div>
         <div class="scroll-cue" aria-hidden="true">
@@ -51,22 +47,33 @@
       <section class="section about" id="about">
         <div class="container">
           <h2 class="section-title" data-reveal>About Me</h2>
-          <div class="about-body">
-            <p class="lead" data-reveal>
-              I am a storyteller who works at the intersection of ecology,
-              journalism and sport.
-            </p>
-            <p data-reveal>
-              Born and raised in Seoul, I have spent the last several years documenting
-              how communities respond to environmental change — from riverside
-              clean-ups to climate policy forums. My camera goes where my convictions
-              go, and the discipline I learned on the water keeps both of them steady.
-            </p>
-            <p data-reveal>
-              This page collects the three currents of my life: K-Environmentalism,
-              photojournalism, and rowing. Scroll slowly — like a long, heavy stroke —
-              and drag whatever asks to be dragged.
-            </p>
+          <div class="about-grid">
+            <div class="about-body">
+              <p class="lead" data-reveal>
+                I am a storyteller who works at the intersection of ecology,
+                journalism and sport.
+              </p>
+              <p data-reveal>
+                Born and raised in Seoul, I have spent the last several years documenting
+                how communities respond to environmental change — from riverside
+                clean-ups to climate policy forums. My camera goes where my convictions
+                go, and the discipline I learned on the water keeps both of them steady.
+              </p>
+              <p data-reveal>
+                This page collects the three currents of my life: K-Environmentalism,
+                photojournalism, and rowing. Scroll slowly — like a long, heavy stroke —
+                and drag whatever asks to be dragged.
+              </p>
+            </div>
+            <div class="about-video" data-reveal>
+              <iframe
+                src="https://www.youtube.com/embed/EdFrM-SigOs"
+                title="About Minkyo Kim — video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+            </div>
           </div>
         </div>
       </section>
@@ -78,9 +85,7 @@
           <h2 class="section-title" data-reveal>K-Environmentalism</h2>
           <p class="section-text" data-reveal>
             Korea's grassroots environmental movement is young, loud and deeply local.
-            I organise and document campaigns that translate global climate anxiety
-            into neighbourhood action — beach clean-ups, zero-waste markets, river
-            monitoring and youth climate forums.
+            I organise and document articles that tackle global climate anxiety into neighbourhood action.
           </p>
         </div>
 
@@ -133,7 +138,7 @@
           <h2 class="section-title" data-reveal>Photojournalism</h2>
           <p class="section-text" data-reveal>
             Frames from the field. <strong>Drag the cards</strong> to spin the
-            carousel — or swipe on your phone — and use the slider below to scrub.
+            carousel — or swipe on your phone.
           </p>
         </div>
 
@@ -160,13 +165,6 @@
               <figcaption>Peace</figcaption>
             </figure>
           </div>
-        </div>
-
-        <div class="container ring-slider-wrap">
-          <input type="range" id="ring-slider" class="ring-slider"
-                 min="0" max="360" step="1" value="0"
-                 aria-label="Rotate the photo carousel" />
-          <p class="hint">slider</p>
         </div>
       </section>
 

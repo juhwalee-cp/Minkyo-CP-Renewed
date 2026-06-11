@@ -71,11 +71,10 @@ if (!reduceMotion) {
 
 /* --------------------------------------------------------------------------
    4. Photojournalism — 3D ring of 6 cards.
-   Drag (mouse) or swipe (touch) to spin; the slider scrubs and stays in sync.
+   Drag (mouse) or swipe (touch) to spin.
    -------------------------------------------------------------------------- */
 const ring = document.querySelector(".ring");
 const ringCards = gsap.utils.toArray(".ring-card");
-const ringSlider = document.getElementById("ring-slider");
 const CARD_ANGLE = 360 / ringCards.length;
 
 let ringRotation = 0;
@@ -114,18 +113,12 @@ function setRingRotation(value, animate = false) {
       onUpdate() {
         ringRotation = gsap.getProperty(ring, "rotationY");
         shadeRingCards();
-        syncSlider();
       },
     });
   } else {
     gsap.set(ring, { rotationY: value });
     shadeRingCards();
-    syncSlider();
   }
-}
-
-function syncSlider() {
-  ringSlider.value = Math.round(gsap.utils.wrap(0, 360, ringRotation));
 }
 
 layoutRing();
@@ -151,15 +144,6 @@ function spinRing() {
   lastProxyX = this.x;
   setRingRotation(ringRotation + delta * 0.35);
 }
-
-/* Slider also drives the ring (finds the shortest path to the chosen angle) */
-ringSlider.addEventListener("input", () => {
-  const current = gsap.utils.wrap(0, 360, ringRotation);
-  let diff = Number(ringSlider.value) - current;
-  if (diff > 180) diff -= 360;
-  if (diff < -180) diff += 360;
-  setRingRotation(ringRotation + diff);
-});
 
 /* --------------------------------------------------------------------------
    5. Rowing — draggable boat along a sine waterway; 5 story cards fade
