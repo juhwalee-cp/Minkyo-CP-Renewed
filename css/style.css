@@ -123,8 +123,8 @@ img, svg { display: block; max-width: 100%; }
   letter-spacing: -0.01em;
 }
 
-.hero-line { display: block; overflow: hidden; }
-.hero-line > span { display: inline-block; will-change: transform; }
+.hero-line { display: block; overflow: hidden; height: 120px; }
+.hero-line > span { display: inline-block; will-change: transform; height: 110px; }
 
 .hero-sub {
   margin-top: 1.4rem;
