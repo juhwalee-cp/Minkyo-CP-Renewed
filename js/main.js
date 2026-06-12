@@ -70,7 +70,7 @@ if (!reduceMotion) {
 }
 
 /* --------------------------------------------------------------------------
-   4. Photojournalism — 3D ring of 6 cards.
+   4. Photojournalism — 3D ring of 5 cards.
    Drag (mouse) or swipe (touch) to spin.
    -------------------------------------------------------------------------- */
 const ring = document.querySelector(".ring");
@@ -81,7 +81,8 @@ let ringRotation = 0;
 
 function ringRadius() {
   const w = ringCards[0].offsetWidth;
-  return Math.round(w / 2 / Math.tan(Math.PI / ringCards.length)) + 30;
+  /* generous spread so the neighbouring cards peek in from the sides */
+  return Math.round(w / 2 / Math.tan(Math.PI / ringCards.length)) + Math.round(w * 0.45);
 }
 
 function layoutRing() {

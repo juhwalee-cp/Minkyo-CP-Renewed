@@ -28,7 +28,7 @@ assets/         — placeholder résumé PDF (replace with the real one)
 |---|---|
 | Whole page | Heavy, momentum-based scrolling via **ScrollSmoother** — gradually eases to a stop |
 | K-Environmentalism | 4 image cards on an infinite **conveyor belt moving right**; slows on hover, speeds up with scroll velocity |
-| Photojournalism | 6 cards on a **3D ring** — drag to rotate on desktop, swipe on mobile |
+| Photojournalism | 5 cards on a **3D ring** — neighbours peek in from the sides; drag to rotate on desktop, swipe on mobile |
 | Rowing | **Drag the boat** along the waterway (mouse, touch, or arrow keys); 5 story cards fade in/out as the boat passes |
 | Contact | Demo form + résumé download |
 
